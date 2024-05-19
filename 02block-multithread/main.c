@@ -28,6 +28,11 @@ int main(void) {
         return -1;
     }
 
+    int enable_reuse = 1;
+    if (setsockopt(sock_fd, SOL_SOCKET, SO_REUSEADDR, &enable_reuse, sizeof(int)) < 0){
+        perror("setsockopt");
+    }
+
     struct sockaddr_in addr;
     addr.sin_family = AF_INET;
     addr.sin_addr.s_addr = inet_addr("0.0.0.0");
