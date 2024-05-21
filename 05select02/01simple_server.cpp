@@ -8,8 +8,8 @@ using namespace std;
 
 constexpr uint32_t Backlog = 10;
 
-// simple select server
-namespace sss {
+// simple server
+namespace ss {
     class SimpleServer {
     public:
         SimpleServer(int fd, int port) : m_sock_fd(fd), m_port(port) {
@@ -64,7 +64,7 @@ int main() {
         return -1;
     }
 
-    sss::SimpleServer s(sock_fd, 8000);
+    ss::SimpleServer s(sock_fd, 8000);
     if (!s._bind()) {
         cout << "bind error" << endl;
         return -1;
